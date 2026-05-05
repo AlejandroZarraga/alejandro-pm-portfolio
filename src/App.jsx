@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useState } from 'react';
 
 const data = {
   en: {
-    nav: ['Product', 'Case Studies', 'AI Workflow', 'Artifacts', 'Experience', 'Contact'],
+    nav: ['Product', 'Case Studies', 'AI Workflow', 'Artifacts', 'Experience', 'Testimonials', 'Contact'],
     hero: {
       eyebrow: 'PRODUCT STRATEGY · TECHNICAL ALIGNMENT · AI WORKFLOWS',
       name: 'Alejandro Zarraga Flores',
@@ -180,6 +180,48 @@ const data = {
       ],
       stats: ['11+ years', 'Remote-first teams', 'Mobile + Web', 'Bilingual EN/ES', 'AI-assisted workflows', 'Product + Agile'],
     },
+    testimonials: {
+      title: 'What people say',
+      subtitle: 'LinkedIn recommendations from senior product leaders, peers and engineers I have worked with.',
+      items: [
+        {
+          name: 'Christy Martz',
+          photo: '/testimonials/christy.jpg',
+          title: 'Vice President of Product · Digital Health, SaaS',
+          company: 'Personify Health',
+          date: 'December 2025',
+          initials: 'CM',
+          quote: 'I had the privilege of working with Alex on my product team at Personify Health, and he is one of the most reliable and thoughtful Product Managers I have partnered with. Alex consistently demonstrates a rare combination of intelligence, executional rigor, and genuine team-centered leadership. What stands out most about Alex is his ability to bring people together around complex problems and move work forward with clarity and momentum. He builds strong cross-functional relationships quickly, creates alignment where it is needed most, and ensures teams stay focused on delivering meaningful outcomes.',
+        },
+        {
+          name: 'Genevieve Vullo, MHS, PMP',
+          photo: '/testimonials/genevieve.jpg',
+          title: 'Senior Product Manager',
+          company: 'Personify Health',
+          date: 'December 2025',
+          initials: 'GV',
+          quote: 'Alex was a joy to work with during his time at Personify Health. He is an excellent, detail-oriented product manager, quick to uncover the preferred ways-of-working for different teams and adapt as needed. I saw firsthand his skill in digging into requirements, working through sequencing, and communicating across a wide range of stakeholders including engineering and product leadership. He is enthusiastic and ready to dive in to any topic, a fantastic team player!',
+        },
+        {
+          name: 'Cameron Loughman',
+          photo: '/testimonials/cameron.jpg',
+          title: 'Engineering',
+          company: 'Drata',
+          date: 'January 2024',
+          initials: 'CL',
+          quote: 'Alejandro and I worked very closely at Drata, and I quickly learned that I could really rely on him to get any job done. He skillfully managed multiple projects in parallel, and collaborated with folks around the company to ensure his team remained unblocked and on track. Alejandro was just a great guy to have around — he always had a positive outlook and faced challenges with a smile on his face. He consistently demonstrated excellence as a product owner: he always kept his team motivated and organized, communicated to stakeholders frequently, and took care of all the big and small things.',
+        },
+        {
+          name: 'Patricia Truong, PMP, CSM, Six Sigma',
+          photo: '/testimonials/patricia.jpg',
+          title: 'Tech Program Management',
+          company: 'Drata',
+          date: 'January 2024',
+          initials: 'PT',
+          quote: 'Alejandro has been an instrumental part of our agile development team at Drata. Alejandro has a unique gift of being a team player for company wide initiatives, while also looking out for his agile team. Alejandro is so reliable and dependable. I know given any task, he will always execute. As a product owner Alejandro would always initiate steps to set up the team for success — creating stories, understanding dependencies and communicating gaps.',
+        },
+      ],
+    },
     contact: {
       title: 'Let’s build clear product execution.',
       copy: 'Open to remote-first Product Manager, Technical Product Manager, Product Owner and Agile Product Lead opportunities.',
@@ -193,7 +235,7 @@ const data = {
 
 data.es = JSON.parse(JSON.stringify(data.en));
 Object.assign(data.es, {
-  nav: ['Producto', 'Casos', 'Flujo IA', 'Artefactos', 'Experiencia', 'Contacto'],
+  nav: ['Producto', 'Casos', 'Flujo IA', 'Artefactos', 'Experiencia', 'Testimonios', 'Contacto'],
   hero: {
     eyebrow: 'ESTRATEGIA DE PRODUCTO · ALINEACIÓN TÉCNICA · FLUJOS DE IA',
     name: 'Alejandro Zarraga Flores',
@@ -267,6 +309,48 @@ Object.assign(data.es, {
       'He trabajado en Real Estate Tech, HealthTech, FinTech, Compliance, InsurTech, telecom y software empresarial, colaborando con equipos de Producto, Ingeniería, UX, QA, Legal, Data, Customer Success y liderazgo.',
     ],
     stats: ['11+ años', 'Equipos remote-first', 'Mobile + Web', 'Bilingüe EN/ES', 'Flujos asistidos por IA', 'Producto + Agile'],
+  },
+  testimonials: {
+    title: 'Lo que dicen',
+    subtitle: 'Recomendaciones de LinkedIn de líderes senior de producto, pares e ingenieros con los que he trabajado.',
+    items: [
+      {
+        name: 'Christy Martz',
+        photo: '/testimonials/christy.jpg',
+        title: 'Vice President of Product · Digital Health, SaaS',
+        company: 'Personify Health',
+        date: 'Diciembre 2025',
+        initials: 'CM',
+        quote: 'Tuve el privilegio de trabajar con Alex en mi equipo de producto en Personify Health, y es uno de los Product Managers más confiables y reflexivos con los que he colaborado. Alex demuestra constantemente una combinación rara de inteligencia, rigor de ejecución y liderazgo genuino centrado en el equipo. Lo que más destaca de Alex es su habilidad para unir a las personas en torno a problemas complejos y avanzar el trabajo con claridad e impulso. Construye relaciones sólidas cross-funcionales rápido, crea alineación donde más se necesita y asegura que los equipos sigan enfocados en entregar resultados significativos.',
+      },
+      {
+        name: 'Genevieve Vullo, MHS, PMP',
+        photo: '/testimonials/genevieve.jpg',
+        title: 'Senior Product Manager',
+        company: 'Personify Health',
+        date: 'Diciembre 2025',
+        initials: 'GV',
+        quote: 'Trabajar con Alex en Personify Health fue un placer. Es un product manager excelente y orientado al detalle, rápido para descubrir las formas de trabajo preferidas de diferentes equipos y adaptarse según se necesite. Vi de primera mano su habilidad para profundizar en requerimientos, trabajar el sequencing y comunicarse con un amplio rango de stakeholders incluyendo ingeniería y liderazgo de producto. Es entusiasta y siempre dispuesto a sumergirse en cualquier tema, un fantastic team player!',
+      },
+      {
+        name: 'Cameron Loughman',
+        photo: '/testimonials/cameron.jpg',
+        title: 'Engineering',
+        company: 'Drata',
+        date: 'Enero 2024',
+        initials: 'CL',
+        quote: 'Alejandro y yo trabajamos muy de cerca en Drata, y rápidamente aprendí que podía contar con él para sacar cualquier cosa adelante. Manejó múltiples proyectos en paralelo con destreza y colaboró con personas de toda la empresa para asegurar que su equipo siguiera desbloqueado y en track. Alejandro era genial tenerlo cerca — siempre tenía una actitud positiva y enfrentaba los retos con una sonrisa. Demostró excelencia consistente como product owner: mantenía al equipo motivado y organizado, se comunicaba con stakeholders frecuentemente y se hacía cargo de todas las cosas grandes y pequeñas.',
+      },
+      {
+        name: 'Patricia Truong, PMP, CSM, Six Sigma',
+        photo: '/testimonials/patricia.jpg',
+        title: 'Tech Program Management',
+        company: 'Drata',
+        date: 'Enero 2024',
+        initials: 'PT',
+        quote: 'Alejandro ha sido una parte instrumental de nuestro equipo de desarrollo agile en Drata. Tiene el don único de ser un team player para iniciativas a nivel empresa mientras también vela por su agile team. Es muy confiable — sé que ante cualquier tarea, va a ejecutar. Como product owner siempre tomaba la iniciativa de preparar al equipo para el éxito: creando stories, entendiendo dependencias y comunicando gaps.',
+      },
+    ],
   },
   contact: {
     title: 'Construyamos ejecución de producto clara.',
@@ -512,7 +596,7 @@ export default function App() {
   const [lang, setLang] = useState('en');
   const [selectedCase, setSelectedCase] = useState(null);
   const t = data[lang];
-  const navLinks = useMemo(() => ['#product', '#cases', '#ai', '#artifacts', '#experience', '#contact'], []);
+  const navLinks = useMemo(() => ['#product', '#cases', '#ai', '#artifacts', '#experience', '#testimonials', '#contact'], []);
   const [activeSection, setActiveSection] = useState('product');
 
   useEffect(() => {
@@ -631,6 +715,29 @@ export default function App() {
           <SectionHeader title={t.experience.title} subtitle={t.experience.subtitle} />
           <div className="grid gap-5">
             {t.experience.items.map(([period, company, role, summary]) => <Card key={company}><div className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-lime-300">{period}</div><h3 className="text-lg font-semibold text-neutral-50">{company}</h3><p className="mt-1 text-sm text-neutral-300">{role}</p><p className="mt-3 text-sm leading-6 text-neutral-500">{summary}</p><CompanyLinks links={getExperienceLinks(company)} compact /></Card>)}
+          </div>
+        </section>
+
+        <section id="testimonials" className="mx-auto max-w-7xl px-4 py-14 md:px-8 md:py-20">
+          <SectionHeader title={t.testimonials.title} subtitle={t.testimonials.subtitle} />
+          <div className="grid gap-5 md:grid-cols-2">
+            {t.testimonials.items.map((item) => (
+              <Card key={item.name}>
+                <div className="mb-4 flex items-start gap-4">
+                  {item.photo ? (
+                    <img src={item.photo} alt={item.name} onError={(e) => { e.currentTarget.replaceWith(Object.assign(document.createElement('div'), { className: 'flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full border border-lime-400/40 bg-lime-400/10 text-sm font-semibold text-lime-300', textContent: item.initials })); }} className="h-12 w-12 flex-shrink-0 rounded-full border border-lime-400/40 object-cover" />
+                  ) : (
+                    <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full border border-lime-400/40 bg-lime-400/10 text-sm font-semibold text-lime-300">{item.initials}</div>
+                  )}
+                  <div>
+                    <div className="text-sm font-semibold text-neutral-50">{item.name}</div>
+                    <div className="text-xs text-neutral-400">{item.title}</div>
+                    <div className="mt-0.5 text-xs text-neutral-500">{item.company} · {item.date}</div>
+                  </div>
+                </div>
+                <p className="text-sm leading-7 text-neutral-300">"{item.quote}"</p>
+              </Card>
+            ))}
           </div>
         </section>
 
