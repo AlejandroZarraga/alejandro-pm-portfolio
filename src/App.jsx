@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 
 const data = {
   en: {
@@ -6,9 +6,9 @@ const data = {
     hero: {
       eyebrow: 'PRODUCT STRATEGY · TECHNICAL ALIGNMENT · AI WORKFLOWS',
       name: 'Alejandro Zarraga Flores',
-      headline: 'AI-enabled Product Manager turning complex product ambiguity into structured, delivery-ready execution.',
+      headline: 'AI-enabled Senior Product Manager.',
       subtitle:
-        'I help product, design and engineering teams transform complex business needs into clear PRDs, scalable user stories, technical alignment and measurable product delivery across Real Estate Tech, HealthTech, FinTech, Compliance and enterprise software platforms.',
+        'Bilingual EN/ES, remote-first. 11 years shipping mobile, web and platform experiences across Real Estate, HealthTech, FinTech and Compliance — currently leading mobile parity at Compass, the largest U.S. residential brokerage by sales volume.',
       role:
         'Senior Product Manager at Plan A Technologies, supporting Compass Real Estate as an expert product consultant across mobile and web agent-facing experiences.',
       primary: 'View Case Studies',
@@ -17,15 +17,15 @@ const data = {
       tags: ['Product Strategy', 'Technical Product', 'Agile Delivery', 'AI Workflows', 'Mobile & Web'],
     },
     product: {
-      title: 'Product Operating System',
-      subtitle: 'A structured way to move from unclear business needs to aligned teams, validated requirements and delivery-ready execution.',
+      title: 'How I work',
+      subtitle: 'How I move from ambiguity to delivery — with examples from Compass, Personify Health, Drata and EasyPay.',
       cards: [
-        ['◎', 'Product Strategy', 'Define the problem, clarify business goals and connect product decisions to measurable outcomes.'],
-        ['▣', 'PRDs & Requirements', 'Transform business context into clear PRDs, user stories, acceptance criteria, dependencies and scope boundaries.'],
-        ['⌘', 'Technical Alignment', 'Bridge product, UX and engineering through API awareness, feature flags, analytics, mobile parity and implementation constraints.'],
-        ['↳', 'Agile Delivery', 'Keep teams aligned through backlog refinement, sprint planning, prioritization, risk management and clear delivery expectations.'],
-        ['✦', 'AI-enabled Workflows', 'Use ChatGPT, Claude, Claude CoWork, Obsidian and Figma AI to accelerate discovery, documentation, build analysis and decision-making.'],
-        ['◇', 'Stakeholder Clarity', 'Turn feedback from product, design, engineering, QA, legal and leadership into structured decisions and actionable next steps.'],
+        ['◎', 'Product Strategy', 'Connect product decisions to measurable outcomes. Compass mobile parity → P0 vs enhancement separation → reduced delivery risk.'],
+        ['▣', 'PRDs & Stories', 'PRDs engineers actually use, not just read. Personify Health → 4 modules delivered at 90%+ sprint goal completion.'],
+        ['⌘', 'Technical Alignment', 'Bridge product, UX and engineering through APIs, feature flags, mobile parity. EasyPay → first mobile app integrated with banking APIs and OCR.'],
+        ['↳', 'Agile Delivery', 'Backlog refinement, sprint planning, dependency tracking. Personify → 30% backlog churn reduction through structured grooming.'],
+        ['✦', 'AI-enabled Workflows', 'Claude, ChatGPT, Obsidian and Figma AI accelerate discovery and documentation — never replace product judgment. Used across Compass, Personify and Drata.'],
+        ['◇', 'Stakeholder Clarity', 'Convert feedback from Legal, Compliance, Engineering and QA into actionable next steps. PHI compliance → audit-aware acceptance criteria.'],
       ],
     },
     cases: {
@@ -48,7 +48,7 @@ const data = {
             'Documented bottom navigation, tile behavior, badges, feature flags and analytics.',
             'Separated P0 scope from enhancements to reduce delivery risk.',
           ],
-          impact: 'Improved implementation clarity by converting ambiguous parity expectations into structured requirements, dev-ready stories and explicit scope boundaries.',
+          impact: 'Structured Homepage parity requirements for Compass — the largest U.S. residential real estate brokerage by sales volume. Built Jira-ready stories that improved alignment across Product, Design and Engineering, with explicit P0 scope separated from enhancements to reduce delivery risk.',
         },
         {
           title: 'Compass Real Estate – Collections Hub for Android',
@@ -64,7 +64,7 @@ const data = {
             'Included success toasters, error states and required-field flows.',
             'Elevated Map View to P0 after stakeholder and engineering alignment.',
           ],
-          impact: 'Reduced product ambiguity by structuring the Collections experience into clear P0 requirements, dependencies and engineering review items.',
+          impact: 'Structured the Android Collections experience for Compass agents, including Map View elevated to P0 after stakeholder and engineering alignment. Reduced product ambiguity through clear P0 scope, cross-surface entry points and explicit dependencies.',
         },
         {
           title: 'Personify Health – PHI Access Management',
@@ -80,7 +80,9 @@ const data = {
             'Documented alignment needs with MSR Desk logic and Informatics.',
             'Included timestamp traceability and compliance-aware acceptance criteria.',
           ],
-          impact: 'Structured a sensitive compliance initiative into clear product and technical discovery workstreams before implementation.',
+          impact: 'Part of a 4-module health and benefits delivery (My Coverage, Claims, MCC, member-facing) that achieved 90%+ sprint goal completion and 30% reduction in backlog churn through structured grooming and dependency tracking. PHI initiative included audit-aware acceptance criteria and timestamp traceability.',
+          decision: 'Coordinated 3 scrum pods (7 devs each + 1 QA + 1 UX + 1 EM per pod) with cross-pod dependencies and 8+ external stakeholders in parallel — including Legal, Compliance, MSR Desk, Informatics, leadership and Lead PMs. Every PHI-related decision had to be aligned with audit, legal, and engineering simultaneously, often within the same sprint.',
+          learning: 'Constant, proactive communication — including blockers and slip risks — protected the team from late-stage surprises. Surfacing a delay one sprint early is always cheaper than absorbing the same delay one sprint late. I built that into our refinement and standup cadence.',
         },
         {
           title: 'Personify Health – Personal Challenge Email Migration to Braze',
@@ -96,7 +98,7 @@ const data = {
             'Captured trigger, audience, template, goal, localization and stakeholder details.',
             'Documented rollout constraints for safer activation.',
           ],
-          impact: 'Improved consistency and operational clarity across email migration workstreams.',
+          impact: 'Improved operational consistency across email migration workstreams as part of the 4-module Personify Health delivery, contributing to 90%+ sprint goal completion and 30% backlog churn reduction.',
         },
         {
           title: 'EasyPay Finance – Mobile Payment Experience',
@@ -112,7 +114,9 @@ const data = {
             'Supported OCR card scanning and BIN detection capabilities.',
             'Led API integrations with financial institutions and payment platforms.',
           ],
-          impact: 'Helped launch core mobile payment capabilities and improve visibility into balances, due dates and payment options.',
+          impact: 'Shipped EasyPay Finance’s first mobile app — React Native across iOS, Android and web. Launched core payment capabilities: recurring payments, AI-powered OCR card scanning (Visa/Mastercard BIN detection), in-app account blocking, balance visibility and API integrations with financial institutions.',
+          decision: 'Rolled back the PayPal mini-feature mid-launch after discovering a critical vulnerability: the charge was processed on the user side but our system did not always detect the confirmation, opening a path for unauthorized payment injection. I escalated, paused the feature, and redirected the team for 2 sprints to fix it before re-shipping. Branding trust and a smooth payment experience were non-negotiable — even when it meant killing a launch feature.',
+          learning: 'In FinTech, a smaller, fully trusted feature beats a flashy feature with even one trust gap. Killing or pausing a feature is a valid PM tool, not a failure. I now run security and trust review as a separate gate before any payment-flow GA.',
         },
         {
           title: 'Drata – Compliance Software Integrations',
@@ -128,7 +132,7 @@ const data = {
             'Supported integrations with platforms such as Confluence, Intune, AWS and Azure.',
             'Partnered with engineering and architecture to resolve dependencies.',
           ],
-          impact: 'Improved team focus and delivery readiness across compliance integration work.',
+          impact: 'Owned Agile delivery for compliance software integrations with Confluence, Microsoft Intune, AWS and Azure as hybrid Product Owner + Scrum Master. Improved team focus and delivery readiness through structured backlog management and cross-team dependency resolution.',
         },
       ],
     },
@@ -193,8 +197,8 @@ Object.assign(data.es, {
   hero: {
     eyebrow: 'ESTRATEGIA DE PRODUCTO · ALINEACIÓN TÉCNICA · FLUJOS DE IA',
     name: 'Alejandro Zarraga Flores',
-    headline: 'Product Manager potenciado por IA que convierte la ambigüedad de producto en ejecución clara, estructurada y lista para desarrollo.',
-    subtitle: 'Ayudo a equipos de producto, diseño e ingeniería a transformar necesidades complejas de negocio en PRDs claros, user stories escalables, alineación técnica y delivery medible en plataformas de Real Estate Tech, HealthTech, FinTech, Compliance y software empresarial.',
+    headline: 'Product Manager Senior con IA en mi flujo de trabajo.',
+    subtitle: 'Bilingüe EN/ES, remote-first. 11 años creando experiencias mobile, web y de plataforma en Real Estate, HealthTech, FinTech y Compliance — actualmente liderando paridad mobile en Compass, la mayor inmobiliaria residencial de EE.UU. por volumen de ventas.',
     role: 'Senior Product Manager en Plan A Technologies, colaborando con Compass Real Estate como consultor experto de producto en experiencias mobile y web para agentes.',
     primary: 'Ver casos de estudio',
     secondary: 'Explorar mi sistema de producto',
@@ -202,15 +206,15 @@ Object.assign(data.es, {
     tags: ['Estrategia de Producto', 'Producto Técnico', 'Delivery Agile', 'Flujos de IA', 'Web y Mobile'],
   },
   product: {
-    title: 'Sistema Operativo de Producto',
-    subtitle: 'Una forma estructurada de pasar de necesidades ambiguas de negocio a equipos alineados, requisitos validados y ejecución lista para desarrollo.',
+    title: 'Cómo trabajo',
+    subtitle: 'Cómo paso de la ambigüedad al delivery — con ejemplos de Compass, Personify Health, Drata y EasyPay.',
     cards: [
-      ['◎', 'Estrategia de Producto', 'Definir el problema, clarificar objetivos de negocio y conectar decisiones de producto con resultados medibles.'],
-      ['▣', 'PRDs y Requisitos', 'Transformar contexto de negocio en PRDs claros, user stories, criterios de aceptación, dependencias y límites de alcance.'],
-      ['⌘', 'Alineación Técnica', 'Conectar producto, UX e ingeniería mediante entendimiento de APIs, feature flags, analytics, mobile parity y restricciones de implementación.'],
-      ['↳', 'Delivery Agile', 'Mantener equipos alineados mediante backlog refinement, sprint planning, priorización, gestión de riesgos y expectativas claras de entrega.'],
-      ['✦', 'Flujos potenciados por IA', 'Usar ChatGPT, Claude, Claude CoWork, Obsidian y Figma AI para acelerar discovery, documentación, análisis de builds y toma de decisiones.'],
-      ['◇', 'Claridad con Stakeholders', 'Convertir feedback de producto, diseño, ingeniería, QA, legal y liderazgo en decisiones estructuradas y próximos pasos accionables.'],
+      ['◎', 'Estrategia de Producto', 'Conectar decisiones de producto con resultados medibles. Paridad mobile en Compass → separar P0 de mejoras → menor riesgo de delivery.'],
+      ['▣', 'PRDs y Stories', 'PRDs que ingeniería realmente usa, no solo lee. Personify Health → 4 módulos entregados con 90%+ de cumplimiento de sprint goal.'],
+      ['⌘', 'Alineación Técnica', 'Conectar producto, UX e ingeniería mediante APIs, feature flags y mobile parity. EasyPay → primer app mobile integrado con APIs bancarias y OCR.'],
+      ['↳', 'Delivery Agile', 'Backlog refinement, sprint planning, gestión de dependencias. Personify → 30% reducción de churn de backlog mediante grooming estructurado.'],
+      ['✦', 'Flujos potenciados por IA', 'Claude, ChatGPT, Obsidian y Figma AI aceleran discovery y documentación — nunca reemplazan el criterio de producto. Usado en Compass, Personify y Drata.'],
+      ['◇', 'Claridad con Stakeholders', 'Convertir feedback de Legal, Compliance, Ingeniería y QA en próximos pasos accionables. Compliance PHI → criterios de aceptación con audit-awareness.'],
     ],
   },
   cases: {
@@ -275,19 +279,31 @@ Object.assign(data.es, {
 });
 
 const esCaseTranslations = [
-  ['Compass Real Estate – Paridad de Homepage en Android', 'Definí los requisitos de paridad del Homepage Android usando iOS como source of truth, incluyendo navegación, comportamiento de tiles, feature flags, badges, ruteo y analytics.'],
-  ['Compass Real Estate – Collections Hub para Android', 'Estructuré el alcance del Collections Hub en Android, incluyendo tabs Shared y Unshared, flujos de creación, empty states, error states, Map View y entry points cross-surface.'],
-  ['Personify Health – Gestión de Acceso a PHI', 'Estructuré una iniciativa sensible de gestión de acceso a PHI, incluyendo permisos por rol, dependientes, alineación legal, validación backend y trazabilidad de auditoría.'],
-  ['Personify Health – Migración de Emails de Retos Personales a Braze', 'Creé tickets DCO estructurados para la migración de emails de retos personales, cubriendo triggers, audiencias, templates, localización, restricciones de rollout y alineación con stakeholders.'],
-  ['EasyPay Finance – Experiencia Mobile de Pagos', 'Apoyé experiencias mobile de pagos incluyendo pagos recurrentes, integraciones bancarias y PayPal, OCR de tarjetas, BIN detection, alertas y visibilidad de calendarios de pago.'],
-  ['Drata – Integraciones de Software de Compliance', 'Lideré product ownership Agile para integraciones de software de compliance, colaborando con ingeniería, arquitectura, customer support y producto.'],
+  ['Compass Real Estate – Paridad de Homepage en Android', 'Definí los requisitos de paridad del Homepage Android usando iOS como source of truth, incluyendo navegación, comportamiento de tiles, feature flags, badges, ruteo y analytics.', 'Estructuré los requisitos de paridad del Homepage para Compass — la mayor inmobiliaria residencial de EE.UU. por volumen de ventas. Construí stories listas para Jira que mejoraron la alineación entre Producto, Diseño e Ingeniería, separando explícitamente el alcance P0 de las mejoras para reducir el riesgo de delivery.'],
+  ['Compass Real Estate – Collections Hub para Android', 'Estructuré el alcance del Collections Hub en Android, incluyendo tabs Shared y Unshared, flujos de creación, empty states, error states, Map View y entry points cross-surface.', 'Estructuré la experiencia Android de Collections para los agentes de Compass, incluyendo Map View elevado a P0 tras alineación con stakeholders e ingeniería. Reduje la ambigüedad del producto mediante alcance P0 claro, entry points cross-surface y dependencias explícitas.'],
+  ['Personify Health – Gestión de Acceso a PHI', 'Estructuré una iniciativa sensible de gestión de acceso a PHI, incluyendo permisos por rol, dependientes, alineación legal, validación backend y trazabilidad de auditoría.', 'Parte de un delivery de 4 módulos de salud y beneficios (My Coverage, Claims, MCC, member-facing) que alcanzó 90%+ de cumplimiento de sprint goal y 30% de reducción en backlog churn mediante grooming estructurado y tracking de dependencias. La iniciativa PHI incluyó criterios de aceptación con audit-awareness y trazabilidad por timestamp.'],
+  ['Personify Health – Migración de Emails de Retos Personales a Braze', 'Creé tickets DCO estructurados para la migración de emails de retos personales, cubriendo triggers, audiencias, templates, localización, restricciones de rollout y alineación con stakeholders.', 'Mejoré la consistencia operativa en los workstreams de migración de emails como parte del delivery de 4 módulos de Personify Health, contribuyendo a 90%+ de cumplimiento de sprint goal y 30% de reducción en backlog churn.'],
+  ['EasyPay Finance – Experiencia Mobile de Pagos', 'Apoyé experiencias mobile de pagos incluyendo pagos recurrentes, integraciones bancarias y PayPal, OCR de tarjetas, BIN detection, alertas y visibilidad de calendarios de pago.', 'Lancé la primera app mobile de EasyPay Finance — React Native en iOS, Android y web. Entregué capacidades core de pagos: pagos recurrentes, OCR de tarjetas con IA (detección de BIN Visa/Mastercard), bloqueo de cuenta in-app, visibilidad de balance e integraciones de API con instituciones financieras.'],
+  ['Drata – Integraciones de Software de Compliance', 'Lideré product ownership Agile para integraciones de software de compliance, colaborando con ingeniería, arquitectura, customer support y producto.', 'Manejé el delivery Agile para integraciones de software de compliance con Confluence, Microsoft Intune, AWS y Azure como Product Owner + Scrum Master híbrido. Mejoré el foco del equipo y la delivery readiness mediante backlog management estructurado y resolución de dependencias cross-team.'],
 ];
+const esCaseExtras = {
+  2: {
+    decision: 'Coordiné 3 pods de scrum (7 devs cada uno + 1 QA + 1 UX + 1 EM por pod) con dependencias cross-pod y 8+ stakeholders externos en paralelo — incluyendo Legal, Compliance, MSR Desk, Informatics, liderazgo y Lead PMs. Cada decisión relacionada con PHI debía alinearse con auditoría, legal e ingeniería simultáneamente, muchas veces dentro del mismo sprint.',
+    learning: 'La comunicación constante y proactiva — incluyendo blockers y riesgos de retraso — protegió al equipo de sorpresas tardías. Avisar un retraso un sprint antes siempre es más barato que absorberlo un sprint después. Lo integré a nuestro ritmo de refinement y standup.',
+  },
+  4: {
+    decision: 'Hice rollback del mini-feature de PayPal en pleno lanzamiento al descubrir una vulnerabilidad crítica: el cargo se procesaba en el lado del usuario pero nuestro sistema no siempre detectaba la confirmación, abriendo un camino para inyección de pagos no autorizados. Escalé, pausé el feature y redirigí al equipo durante 2 sprints para arreglarlo antes de relanzarlo. La confianza de marca y una experiencia de pago fluida no eran negociables — incluso si implicaba matar un feature de lanzamiento.',
+    learning: 'En FinTech, un feature más pequeño pero 100% confiable supera a un feature llamativo con un solo gap de confianza. Matar o pausar un feature es una herramienta válida del PM, no un fracaso. Ahora corro un review de seguridad y trust como gate separado antes de cualquier GA de flujo de pago.',
+  },
+};
 data.es.cases.items = data.en.cases.items.map((item, index) => ({
   ...item,
   title: esCaseTranslations[index][0],
   role: item.role.replace('Product Consultant', 'Consultor de Producto'),
   context: item.context.replace('Plan A Technologies consultant for', 'Consultor de Plan A Technologies para'),
   summary: esCaseTranslations[index][1],
+  impact: esCaseTranslations[index][2],
+  ...(esCaseExtras[index] || {}),
 }));
 
 const linkedInUrl = 'https://www.linkedin.com/in/roberto-alejandro-zarraga-flores-22005a177/';
@@ -408,8 +424,8 @@ function HeroVisual({ lang }) {
         <div className="absolute left-1/2 top-1/2 flex h-20 w-20 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-lime-300/60 bg-neutral-950/90 text-3xl text-lime-300 shadow-[0_0_60px_rgba(57,255,20,0.25)]">✦</div>
         {labels.map((label, index) => {
           const angle = (index / labels.length) * Math.PI * 2;
-          const x = 50 + Math.cos(angle) * 35;
-          const y = 50 + Math.sin(angle) * 28;
+          const x = 50 + Math.cos(angle) * 44;
+          const y = 50 + Math.sin(angle) * 38;
           return (
             <div key={label} className="absolute rounded-full border border-neutral-700 bg-neutral-950/90 px-3 py-1 text-xs font-medium text-neutral-200 shadow-lg shadow-black/40" style={{ left: `${x}%`, top: `${y}%`, transform: 'translate(-50%, -50%)' }}>
               {label}
@@ -431,6 +447,12 @@ function HeroVisual({ lang }) {
 }
 
 function Modal({ item, onClose, lang }) {
+  useEffect(() => {
+    if (!item) return;
+    const handler = (event) => { if (event.key === 'Escape') onClose(); };
+    document.addEventListener('keydown', handler);
+    return () => document.removeEventListener('keydown', handler);
+  }, [item, onClose]);
   if (!item) return null;
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4 backdrop-blur-sm" onClick={onClose}>
@@ -463,6 +485,18 @@ function Modal({ item, onClose, lang }) {
             <h4 className="mb-2 text-sm font-semibold uppercase tracking-[0.2em] text-lime-300">Impact</h4>
             <p className="leading-7 text-neutral-300">{item.impact}</p>
           </div>
+          {item.decision && (
+            <div>
+              <h4 className="mb-2 text-sm font-semibold uppercase tracking-[0.2em] text-lime-300">{lang === 'en' ? 'Decision & Tradeoff' : 'Decisión y tradeoff'}</h4>
+              <p className="leading-7 text-neutral-300">{item.decision}</p>
+            </div>
+          )}
+          {item.learning && (
+            <div>
+              <h4 className="mb-2 text-sm font-semibold uppercase tracking-[0.2em] text-lime-300">{lang === 'en' ? 'What I learned' : 'Lo que aprendí'}</h4>
+              <p className="leading-7 text-neutral-300">{item.learning}</p>
+            </div>
+          )}
           <div>
             <h4 className="mb-2 text-sm font-semibold uppercase tracking-[0.2em] text-lime-300">{lang === 'en' ? 'Company / Product Links' : 'Sitios de empresa / producto'}</h4>
             <CompanyLinks links={getCaseLinks(item.title)} />
@@ -479,6 +513,23 @@ export default function App() {
   const [selectedCase, setSelectedCase] = useState(null);
   const t = data[lang];
   const navLinks = useMemo(() => ['#product', '#cases', '#ai', '#artifacts', '#experience', '#contact'], []);
+  const [activeSection, setActiveSection] = useState('product');
+
+  useEffect(() => {
+    const ids = navLinks.map((href) => href.slice(1));
+    const sections = ids.map((id) => document.getElementById(id)).filter(Boolean);
+    if (!sections.length) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setActiveSection(entry.target.id);
+        });
+      },
+      { rootMargin: '-40% 0px -55% 0px', threshold: 0 }
+    );
+    sections.forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
+  }, [navLinks]);
 
   return (
     <div className="min-h-screen scroll-smooth bg-[#050505] text-neutral-100 selection:bg-lime-400 selection:text-black">
@@ -495,7 +546,12 @@ export default function App() {
             </div>
           </a>
           <div className="hidden items-center gap-6 lg:flex">
-            {t.nav.map((label, index) => <a key={label} href={navLinks[index]} className="text-sm text-neutral-400 transition hover:text-lime-300">{label}</a>)}
+            {t.nav.map((label, index) => {
+              const isActive = navLinks[index] === `#${activeSection}`;
+              return (
+                <a key={label} href={navLinks[index]} className={`text-sm transition ${isActive ? 'text-lime-300' : 'text-neutral-400 hover:text-lime-300'}`}>{label}</a>
+              );
+            })}
           </div>
           <div className="flex items-center gap-2">
             <button onClick={() => setLang(lang === 'en' ? 'es' : 'en')} className="rounded-full border border-neutral-800 bg-neutral-950 px-3 py-2 text-xs font-medium text-neutral-200 transition hover:border-lime-400/50 hover:text-lime-300">{lang === 'en' ? 'EN | ES' : 'ES | EN'}</button>
@@ -527,14 +583,14 @@ export default function App() {
           </div>
         </section>
 
-        <section id="product" className="mx-auto max-w-7xl px-4 py-20 md:px-8">
+        <section id="product" className="mx-auto max-w-7xl px-4 py-14 md:px-8 md:py-20">
           <SectionHeader title={t.product.title} subtitle={t.product.subtitle} />
           <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {t.product.cards.map(([icon, title, copy]) => <Card key={title}><div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl border border-lime-400/30 bg-lime-400/10 text-2xl text-lime-300">{icon}</div><h3 className="text-xl font-semibold text-neutral-50">{title}</h3><p className="mt-3 leading-7 text-neutral-400">{copy}</p></Card>)}
           </div>
         </section>
 
-        <section id="cases" className="mx-auto max-w-7xl px-4 py-20 md:px-8">
+        <section id="cases" className="mx-auto max-w-7xl px-4 py-14 md:px-8 md:py-20">
           <SectionHeader title={t.cases.title} subtitle={t.cases.subtitle} />
           <div className="grid gap-5 lg:grid-cols-2">
             {t.cases.items.map((item, index) => (
@@ -551,7 +607,7 @@ export default function App() {
           </div>
         </section>
 
-        <section id="ai" className="mx-auto max-w-7xl px-4 py-20 md:px-8">
+        <section id="ai" className="mx-auto max-w-7xl px-4 py-14 md:px-8 md:py-20">
           <SectionHeader title={t.ai.title} subtitle={t.ai.subtitle} />
           <div className="rounded-[2rem] border border-neutral-800 bg-neutral-950/70 p-6 shadow-2xl shadow-black/30 md:p-8">
             <p className="mx-auto mb-10 max-w-3xl text-center text-lg leading-8 text-neutral-400">{t.ai.copy}</p>
@@ -564,26 +620,26 @@ export default function App() {
           </div>
         </section>
 
-        <section id="artifacts" className="mx-auto max-w-7xl px-4 py-20 md:px-8">
+        <section id="artifacts" className="mx-auto max-w-7xl px-4 py-14 md:px-8 md:py-20">
           <SectionHeader title={t.artifacts.title} subtitle={t.artifacts.subtitle} />
           <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {t.artifacts.items.map(([title, copy]) => <Card key={title}><div className="mb-5 flex h-11 w-11 items-center justify-center rounded-2xl border border-neutral-700 bg-neutral-900 text-lime-300">▣</div><h3 className="text-xl font-semibold text-neutral-50">{title}</h3><p className="mt-3 leading-7 text-neutral-400">{copy}</p></Card>)}
           </div>
         </section>
 
-        <section id="experience" className="mx-auto max-w-6xl px-4 py-20 md:px-8">
+        <section id="experience" className="mx-auto max-w-6xl px-4 py-14 md:px-8 md:py-20">
           <SectionHeader title={t.experience.title} subtitle={t.experience.subtitle} />
           <div className="grid gap-5">
             {t.experience.items.map(([period, company, role, summary]) => <Card key={company}><div className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-lime-300">{period}</div><h3 className="text-lg font-semibold text-neutral-50">{company}</h3><p className="mt-1 text-sm text-neutral-300">{role}</p><p className="mt-3 text-sm leading-6 text-neutral-500">{summary}</p><CompanyLinks links={getExperienceLinks(company)} compact /></Card>)}
           </div>
         </section>
 
-        <section id="about" className="mx-auto grid max-w-7xl gap-10 px-4 py-20 md:px-8 lg:grid-cols-[1fr_0.8fr]">
+        <section id="about" className="mx-auto grid max-w-7xl gap-10 px-4 py-14 md:px-8 md:py-20 lg:grid-cols-[1fr_0.8fr]">
           <div><div className="mb-4 h-px w-16 bg-lime-400/70" /><h2 className="text-3xl font-semibold text-neutral-50 md:text-5xl">{t.about.title}</h2><div className="mt-6 grid gap-5 text-lg leading-8 text-neutral-400">{t.about.copy.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</div></div>
           <div className="grid gap-4 sm:grid-cols-2">{t.about.stats.map((stat) => <div key={stat} className="rounded-3xl border border-neutral-800 bg-neutral-950/70 p-6"><div className="mb-4 text-2xl text-lime-300">✦</div><div className="text-2xl font-semibold text-neutral-50">{stat}</div></div>)}</div>
         </section>
 
-        <section id="contact" className="mx-auto max-w-7xl px-4 py-20 md:px-8">
+        <section id="contact" className="mx-auto max-w-7xl px-4 py-14 md:px-8 md:py-20">
           <div className="relative overflow-hidden rounded-[2rem] border border-lime-400/30 bg-neutral-950 p-8 shadow-2xl shadow-lime-950/20 md:p-12">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(57,255,20,0.16),transparent_30%)]" />
             <div className="relative grid gap-8 lg:grid-cols-[1fr_0.7fr] lg:items-center">
@@ -594,7 +650,18 @@ export default function App() {
         </section>
       </main>
 
-      <footer className="border-t border-neutral-900 px-4 py-8 text-center text-sm text-neutral-600 md:px-8">© {new Date().getFullYear()} Alejandro Zarraga Flores · Product Operating System</footer>
+      <footer className="border-t border-neutral-900 px-4 py-8 text-sm text-neutral-600 md:px-8">
+        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 sm:flex-row">
+          <div className="text-center sm:text-left">© {new Date().getFullYear()} Alejandro Zarraga Flores · Senior Product Manager</div>
+          <div className="flex flex-wrap items-center justify-center gap-4">
+            <a href={emailUrl} target="_blank" rel="noreferrer" className="text-neutral-500 transition hover:text-lime-300">{email}</a>
+            <span className="text-neutral-800">·</span>
+            <a href={linkedInUrl} target="_blank" rel="noreferrer" className="text-neutral-500 transition hover:text-lime-300">LinkedIn ↗</a>
+            <span className="text-neutral-800">·</span>
+            <a href={cvUrl} download className="text-neutral-500 transition hover:text-lime-300">CV ↓</a>
+          </div>
+        </div>
+      </footer>
       <Modal item={selectedCase} onClose={() => setSelectedCase(null)} lang={lang} />
     </div>
   );
